@@ -1,0 +1,42 @@
+# Define values
+hourly_rate = 54.44  # hourly wage
+hours_per_week = 40  # full-time hours
+weeks_per_month = 4.33  # average weeks per month
+
+house_payment = 1570  # house payment
+#personal_loan_payment = 500  # personal loan payment
+
+# Calculate monthly gross income
+monthly_income = hourly_rate * hours_per_week * weeks_per_month
+
+# Total monthly debt payments
+total_monthly_debt = house_payment #+ personal_loan_payment
+
+# Calculate DTI ratio
+dti_ratio = (total_monthly_debt / monthly_income) * 100
+print(dti_ratio)
+
+
+# Loan details for new home purchase
+home_price = 525000  # price of new home
+down_payment_percentage = 0.10  # 10% down payment
+loan_amount = home_price * (1 - down_payment_percentage)
+
+# Mortgage assumptions
+annual_interest_rate = 0.055  # 5.5% interest rate
+loan_term_years = 30  # 30-year mortgage
+
+# Convert annual interest rate to monthly and calculate number of payments
+monthly_interest_rate = annual_interest_rate / 12
+number_of_payments = loan_term_years * 12
+
+# Mortgage payment formula
+mortgage_payment = loan_amount * (monthly_interest_rate * (1 + monthly_interest_rate) ** number_of_payments) / \
+                   ((1 + monthly_interest_rate) ** number_of_payments - 1)
+
+# Add new mortgage payment to existing debts
+new_total_monthly_debt = total_monthly_debt + mortgage_payment
+
+# Calculate new DTI ratio
+new_dti_ratio = (new_total_monthly_debt / monthly_income) * 100
+print(mortgage_payment, new_dti_ratio)
